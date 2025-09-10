@@ -1,0 +1,1 @@
+Realization : I realized that it created a new commit, and literally "merged" files from Feature branch with Main. Although, I have also merged files for the rebase activity.
