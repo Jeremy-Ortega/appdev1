@@ -1,0 +1,2 @@
+Realization : I noticed that the micro committing is easier to track compared to macro committing. 
+The files are also easier to update, because each commit only refers to a single thing, compared to macro having every file at once. 
