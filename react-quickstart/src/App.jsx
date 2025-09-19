@@ -5,7 +5,13 @@ import './App.css'
 // Writing markup with JSX
 // Adding styles
 // Displaying data
+
 // Conditional rendering 
+
+// Done rendering lists
+// Done responding to events / using hooks
+// Done sharing data between components
+
 
 function App() {
   const User = {
@@ -14,7 +20,32 @@ function App() {
     imgUrl : "assets\sample.png",
     imgSize : 90
   }
+  // ============================
 
+  let isLoading = false;
+
+  if (isLoading) {
+    isLoading = <DisplayYes/>
+  } else{
+    isLoading = <DisplayNo/>
+  }
+
+  function DisplayYes(){
+    return(
+      <>
+      <h6>The image is showing!</h6>
+      </>
+    )
+  }
+
+  function DisplayNo(){
+    return(
+      <>
+      <h6>The image is not showing..</h6>
+      </>
+    )
+  }
+  // ============================
   function MyButton(){
     return(
     <button>
@@ -22,6 +53,8 @@ function App() {
     </button>
     );
   }
+
+  // ============================
 
   return (
     <>
@@ -37,8 +70,7 @@ function App() {
         height:User.imgSize
       }}/>      
     </div>
-
-
+        {isLoading}
     </>
   )
 }
