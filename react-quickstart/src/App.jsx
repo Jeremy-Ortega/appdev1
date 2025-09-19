@@ -1,24 +1,12 @@
 import './App.css'
 import {useState} from 'react'
 
-// Creating and nesting components
-// Writing markup with JSX
-// Adding styles
-// Displaying data
-
-// Conditional rendering 
-
-// Done rendering lists
-// Done responding to events / using hooks
-// Done sharing data between components
-
-
 function App() {
   const User = {
     name : "Jeremy",
     age : 20,
-    imgUrl : "assets/sample.png",
-    imgSize : 90,
+    imgUrl : "./assets/sample.png",
+    imgSize : 100,
   }
 
   const FavFood = [
@@ -26,14 +14,18 @@ function App() {
     { title: 'Fried Chicken', id: 2 ,isSoup:false},
     { title: 'Bread', id: 3 ,isSoup:false},
   ]
-  
+
    const listItems = FavFood.map(FavFood =>
     <li key={FavFood.id} style={{color:FavFood.isSoup ? 'cyan' : 'orange'}}>
       {FavFood.title}
     </li>
-
-
    )
+
+  const [count2, setCount] = useState(0);
+
+    function handleClick2() {
+      setCount(count2 + 1);
+    }
   // ============================
 
   let isLoading = false;
@@ -86,6 +78,13 @@ function App() {
       );
   }
 
+  function ForSynchedButton(){
+       return(
+      <button onClick={handleClick2}>
+        Clicked {count2} times
+      </button>
+      );
+  }
   // ============================
 
   return (
@@ -97,10 +96,13 @@ function App() {
 
       <h5 style={{color:'lightcoral'}}> These buttons update separately.</h5>
       <CountingButton/>
-      <CountingButton/>
+      <CountingButton/>  
+      
+      <h5 style={{color:'lightblue'}}> These buttons update together.</h5>
+      <ForSynchedButton count={count2} onClick={handleClick2}/>
+      <ForSynchedButton count={count2} onClick={handleClick2}/>
       
       <br />
-
 
       <img src={User.imgUrl} alt="Photo of the pokemon named Vaporeon"  
       style={{
