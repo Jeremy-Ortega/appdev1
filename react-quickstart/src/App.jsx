@@ -17,9 +17,23 @@ function App() {
   const User = {
     name : "Jeremy",
     age : 20,
-    imgUrl : "assets\sample.png",
-    imgSize : 90
+    imgUrl : "assets/sample.png",
+    imgSize : 90,
   }
+
+  const FavFood = [
+    { title: 'Sinigang', id: 1 ,isSoup:true},
+    { title: 'Fried Chicken', id: 2 ,isSoup:false},
+    { title: 'Bread', id: 3 ,isSoup:false},
+  ]
+  
+   const listItems = FavFood.map(FavFood =>
+    <li key={FavFood.id} style={{color:FavFood.isSoup ? 'cyan' : 'orange'}}>
+      {FavFood.title}
+    </li>
+
+
+   )
   // ============================
 
   let isLoading = false;
@@ -54,6 +68,8 @@ function App() {
     );
   }
 
+
+
   // ============================
 
   return (
@@ -64,13 +80,19 @@ function App() {
       <MyButton/>
       <br />
 
+
       <img src={User.imgUrl} alt="Photo of the pokemon named Vaporeon"  
       style={{
         width:User.imgSize,
         height:User.imgSize
-      }}/>      
+      }}/>
+
+      <ul>{listItems}</ul>
+
     </div>
+
         {isLoading}
+
     </>
   )
 }
