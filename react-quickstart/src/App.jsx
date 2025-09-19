@@ -1,5 +1,5 @@
 import './App.css'
-
+import {useState} from 'react'
 
 // Creating and nesting components
 // Writing markup with JSX
@@ -61,14 +61,30 @@ function App() {
   }
   // ============================
   function MyButton(){
+    function handleClick(){
+      alert("You clicked me!");
+    }
+     
     return(
-    <button>
+    <button onClick={handleClick}>
       I'm a button :D
     </button>
     );
   }
 
+  function CountingButton(){
+    const [count, setCount] = useState(0);
 
+    function handleClick() {
+      setCount(count + 1);
+    }
+
+    return(
+      <button onClick={handleClick}>
+        Clicked {count} times
+      </button>
+      );
+  }
 
   // ============================
 
@@ -78,6 +94,11 @@ function App() {
       <h1>Welcome to my App</h1>
       <h4 style={{color:'lightcoral'}}>Hello I'm {User.name} <br />How do you do?</h4>
       <MyButton/>
+
+      <h5 style={{color:'lightcoral'}}> These buttons update separately.</h5>
+      <CountingButton/>
+      <CountingButton/>
+      
       <br />
 
 
