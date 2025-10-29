@@ -1,19 +1,28 @@
-function Profile() {
+import './App.css'
+
+import Gallery from './components/Gallery'
+import TodoList from './components/TodoList'
+import Profile from './components/Profile'
+import Item from './components/Item'
+import List from './components/List'
+import Cup from './components/Cup'
+import RootComponent from './components/RootComponent'
+import  {rootGreet} from './RootModule'
+
+function App() {
+
   return (
-    <img
-      src="https://i.imgur.com/MK3eW3As.jpg"
-      alt="Katherine Johnson"
-    />
-  );
+    <>
+      <TodoList/>
+      <Gallery/>
+      <Item/>
+      <List/>
+      <Cup/>
+      <RootComponent/>
+
+      {rootGreet()}
+    </>
+  )
 }
 
-export default function Gallery() {
-  return (
-    <section>
-      <h1>Amazing scientists</h1>
-      <Profile />
-      <Profile />
-      <Profile />
-    </section>
-  );
-}
+export default App
